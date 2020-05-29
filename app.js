@@ -18,7 +18,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static('public'));
 app.use(methodOverride('_method'))
 
-mongoose.connect(process.env.DB_HOST, { useNewUrlParser: true, useUnifiedTopology: true })
+mongoose.connect("mongodb+srv://phani:mMP00mO6h8Hi5Tv3@contactmanger-dxcgr.mongodb.net/contactList?retryWrites=true&w=majority", { useNewUrlParser: true, useUnifiedTopology: true })
   .catch(err => {
     console.log(err);
   });
@@ -115,6 +115,4 @@ const escapeRegex = (text) => {
   return text.replace(/[-[\]{}()*+?.,\\^$|#\s]/g, "\\$&");
 };
 
-app.listen(port, () => {
-  console.log(`running on port ${port}`);
-})
+app.listen(port, process.env.IP);
