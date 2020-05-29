@@ -16,9 +16,9 @@ app.use(bodyParser.json());
 //support parsing of application/x-www-form-urlencoded post data
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static('public'));
-app.use(methodOverride('_method'))
+app.use(methodOverride('_method'));
 
-mongoose.connect("mongodb+srv://phani:mMP00mO6h8Hi5Tv3@contactmanger-dxcgr.mongodb.net/contactList?retryWrites=true&w=majority", { useNewUrlParser: true, useUnifiedTopology: true })
+mongoose.connect(process.env.DATABASEURL, { useNewUrlParser: true, useUnifiedTopology: true })
   .catch(err => {
     console.log(err);
   });
